@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="制作物と自己紹介を掲載するポートフォリオです。">
+  <meta name="color-scheme" content="light">
+  <title>ポートフォリオ</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./site-data.js" defer></script>
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-name" id="header-name" href="#top">ポートフォリオ</a>
+      <nav aria-label="ページ内ナビゲーション">
+        <ul class="nav-list">
+          <li id="nav-projects"><a href="#projects">制作物</a></li>
+          <li id="nav-about"><a href="#about">自己紹介</a></li>
+          <li id="nav-contact"><a href="#contact">連絡先</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <section class="hero" id="top" aria-labelledby="hero-name">
+        <p class="eyebrow">PORTFOLIO</p>
+        <h1 id="hero-name">ポートフォリオ</h1>
+        <p class="hero-role" id="hero-role" hidden></p>
+      </section>
+
+      <noscript>
+        <p class="notice">このページの内容を表示するには、JavaScript を有効にしてください。</p>
+      </noscript>
+
+      <section class="content-section" id="projects" aria-labelledby="projects-title" hidden>
+        <div class="section-heading">
+          <h2 id="projects-title">制作物</h2>
+        </div>
+        <div class="project-list" id="project-list"></div>
+      </section>
+
+      <section class="content-section split-section" id="about" aria-labelledby="about-title" hidden>
+        <div class="section-heading">
+          <h2 id="about-title">自己紹介</h2>
+        </div>
+        <div class="section-body">
+          <p class="about-text" id="about-text" hidden></p>
+          <ul class="skill-list" id="skill-list" aria-label="スキル" hidden></ul>
+        </div>
+      </section>
+
+      <section class="content-section split-section contact-section" id="contact" aria-labelledby="contact-title" hidden>
+        <div class="section-heading">
+          <h2 id="contact-title">連絡先</h2>
+        </div>
+        <div class="section-body">
+          <ul class="contact-list" id="contact-list"></ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><span id="footer-name">ポートフォリオ</span></div>
+  </footer>
+</body>
+</html>
