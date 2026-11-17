@@ -53,8 +53,7 @@ img { display: block; max-width: 100%; }
 
 .section { padding: clamp(5rem, 9vw, 7.5rem) 0; scroll-margin-top: 5rem; }
 .section-heading { margin-bottom: 3.25rem; text-align: center; }
-.section-heading h2 { margin: 0; font-size: clamp(2.2rem, 4vw, 3.25rem); line-height: 1.15; letter-spacing: -.045em; }
-.section-heading p { margin: .75rem 0 0; color: var(--muted); font-size: .8125rem; }
+.section-heading h2 { margin: 0; font-size: clamp(2.2rem, 4vw, 3.25rem); line-height: 1.25; letter-spacing: -.045em; overflow-wrap: anywhere; }
 .works-section, .contact-section { background: var(--paper); }
 .project-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.75rem 1.8rem; }
 .project { min-width: 0; flex: 0 1 320px; }
@@ -118,4 +117,5 @@ a.project-cover:hover { color: #222; border-color: #999; }
   .header-inner { align-items: flex-start; flex-direction: column; gap: .2rem; }
   .nav-list { display: grid; grid-template-columns: repeat(2, max-content); gap: 0 1rem; }
   .nav-list a { padding: .4rem 0; letter-spacing: -.015em; }
+  .section-heading h2 { font-size: clamp(1.75rem, 7vw, 2.2rem); }
 }
