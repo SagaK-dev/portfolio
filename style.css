@@ -89,7 +89,7 @@ a.project-cover:hover { color: #222; border-color: #999; }
 .contact-list li { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); align-items: baseline; gap: 1rem; padding: 1.15rem 0; border-bottom: 1px solid var(--line); }
 .contact-list li:first-child { border-top: 1px solid var(--line); }
 .contact-label { color: var(--muted); font-size: .8125rem; }
-.contact-list a { font-size: .9375rem; overflow-wrap: anywhere; }
+.contact-list a, .contact-value { font-size: .9375rem; overflow-wrap: anywhere; }
 .site-footer { border-top: 1px solid #e5e5e3; }
 .footer-inner { padding: 1.6rem 0; color: var(--muted); font-size: .75rem; text-align: center; }
 .notice { padding: 1rem; border: 1px solid var(--line); }

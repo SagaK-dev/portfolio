@@ -6,14 +6,13 @@
   const entries = value => Array.isArray(value) ? value : [];
   const byId = id => document.getElementById(id);
 
-  // http(s)、相対パス、指定されたメールのみをリンクとして扱います。
-  function safeUrl(value, allowEmail = false) {
+  // http(s) と相対パスのみをリンクとして扱います。
+  function safeUrl(value) {
     const raw = clean(value);
     if (!raw || /[\u0000-\u001f\u007f]/.test(raw)) return "";
     try {
       const url = new URL(raw, document.baseURI);
       if (url.protocol === "https:" || url.protocol === "http:") return raw;
-      if (allowEmail && url.protocol === "mailto:" && /^mailto:/i.test(raw)) return raw;
       const hasScheme = /^[a-z][a-z\d+.-]*:/i.test(raw);
       if (url.protocol === "file:" && !hasScheme && !raw.startsWith("//")) return raw;
     } catch (_) {
@@ -181,23 +180,26 @@
 
   const contact = data.contact && typeof data.contact === "object" ? data.contact : {};
   const contactList = byId("contact-list");
-  function addContact(label, text, url) {
-    if (!label || !text || !url) return;
+  function addContact(label, text, url = "") {
+    if (!label || !text) return;
     const li = document.createElement("li");
     const category = document.createElement("span");
     category.className = "contact-label";
     category.textContent = label;
-    li.append(category, makeLink(text, url));
+    const value = url ? makeLink(text, url) : document.createElement("span");
+    if (!url) {
+      value.className = "contact-value";
+      value.textContent = text;
+    }
+    li.append(category, value);
     contactList.append(li);
   }
   const email = clean(contact.email);
-  // メールアドレスを URL のクエリや追加ヘッダーとして解釈させない。
-  if (email && !/[\s?#]/.test(email) && email.includes("@")) {
-    addContact("メール", email, safeUrl(`mailto:${email}`, true));
-  }
+  if (email) addContact("メール", email);
   for (const item of entries(contact.links)) {
     if (!item || typeof item !== "object") continue;
-    addContact(clean(item.label), clean(item.text) || clean(item.label), safeUrl(item.url));
+    const url = safeUrl(item.url);
+    if (url) addContact(clean(item.label), clean(item.text) || clean(item.label), url);
   }
   toggleSection("contact", contactList.children.length > 0);
 
