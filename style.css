@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Great Vibes";
+  src: url("./fonts/GreatVibes-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   --ink: #222;
@@ -36,7 +44,7 @@ img { display: block; max-width: 100%; }
 .hero { display: grid; min-height: min(720px, calc(100svh - 72px)); place-items: center; text-align: center; background: var(--surface); }
 .hero-inner { padding: 5.5rem 0 4rem; }
 .eyebrow { margin: 0 0 1rem; color: var(--muted); font-size: .7rem; font-weight: 700; letter-spacing: .2em; }
-.hero h1 { margin: 0; font-size: clamp(3.5rem, 9vw, 6.5rem); line-height: 1.1; letter-spacing: -.055em; overflow-wrap: anywhere; }
+.hero h1 { margin: 0; font-family: "Great Vibes", cursive; font-size: clamp(4.5rem, 10vw, 7.5rem); font-weight: 400; line-height: 1.25; letter-spacing: 0; overflow-wrap: anywhere; }
 .hero-role { margin: 1rem 0 0; color: var(--muted); font-size: 1rem; }
 .hero-mark { display: block; width: clamp(108px, 14vw, 145px); height: auto; margin: 2rem auto 1.75rem; stroke: var(--ink); stroke-width: 1.4; }
 .hero-next { display: grid; width: 48px; height: 48px; margin: 0 auto; place-items: center; border: 1px solid #8a8a87; border-radius: 50%; }
@@ -62,6 +70,14 @@ a.project-cover:hover { color: #222; border-color: #999; }
 .technology-list, .skill-list { color: var(--muted); font-size: .8125rem; }
 .project-links { font-size: .8125rem; font-weight: 600; }
 .link-arrow { display: inline-block; margin-left: .3em; text-decoration: none; }
+
+.photos-section { background: #f8f8f6; }
+.photo-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 1.5rem; }
+.photo-item { min-width: 0; margin: 0; }
+.photo-item a { display: block; overflow: hidden; background: #eaeae7; }
+.photo-item img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.photo-item figcaption { margin-top: .65rem; color: var(--muted); font-size: .875rem; overflow-wrap: anywhere; }
+.photo-empty { margin: 0; color: var(--muted); font-size: .9375rem; text-align: center; }
 
 .about-section { text-align: center; background: var(--surface); }
 .profile-mark { display: grid; width: 84px; height: 84px; margin: 0 auto 1.75rem; place-items: center; border: 1px solid #a4a4a0; border-radius: 50%; font-size: 1.1rem; font-weight: 700; letter-spacing: .02em; }
@@ -94,12 +110,12 @@ a.project-cover:hover { color: #222; border-color: #999; }
 }
 
 @media (max-width: 350px) {
-  .hero h1 { font-size: 3.1rem; }
+  .hero h1 { font-size: 4rem; }
 }
 
 @media (max-width: 480px) {
   .container { width: calc(100% - 32px); }
   .header-inner { align-items: flex-start; flex-direction: column; gap: .2rem; }
-  .nav-list { gap: 0 .4rem; }
-  .nav-list a { letter-spacing: -.015em; }
+  .nav-list { display: grid; grid-template-columns: repeat(2, max-content); gap: 0 1rem; }
+  .nav-list a { padding: .4rem 0; letter-spacing: -.015em; }
 }

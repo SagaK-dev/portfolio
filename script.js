@@ -129,6 +129,34 @@
   }
   toggleSection("projects", projectList.children.length > 0);
 
+  const photoList = byId("photo-list");
+  for (const photo of entries(data.photos)) {
+    if (!photo || typeof photo !== "object") continue;
+    const source = safeUrl(photo.src);
+    if (!source) continue;
+    const caption = clean(photo.caption);
+    const alt = clean(photo.alt) || caption || "写真";
+    const figure = document.createElement("figure");
+    figure.className = "photo-item";
+    const link = document.createElement("a");
+    link.href = source;
+    link.setAttribute("aria-label", `${alt}を開く`);
+    const image = document.createElement("img");
+    image.src = source;
+    image.alt = alt;
+    image.loading = "lazy";
+    image.decoding = "async";
+    link.append(image);
+    figure.append(link);
+    if (caption) {
+      const text = document.createElement("figcaption");
+      text.textContent = caption;
+      figure.append(text);
+    }
+    photoList.append(figure);
+  }
+  byId("photo-empty").hidden = photoList.children.length > 0;
+
   const about = clean(data.about);
   setText("about-text", about);
   const skillList = byId("skill-list");
@@ -162,12 +190,12 @@
   }
   toggleSection("contact", contactList.children.length > 0);
 
-  const nextSection = ["projects", "about", "contact"].find(id => !byId(id).hidden);
+  const nextSection = ["projects", "photos", "about", "contact"].find(id => !byId(id).hidden);
   const heroNext = byId("hero-next");
   heroNext.hidden = !nextSection;
   if (nextSection) {
     heroNext.href = `#${nextSection}`;
-    const labels = { projects: "制作物へ移動", about: "自己紹介へ移動", contact: "連絡先へ移動" };
+    const labels = { projects: "制作物へ移動", photos: "写真へ移動", about: "自己紹介へ移動", contact: "連絡先へ移動" };
     heroNext.setAttribute("aria-label", labels[nextSection]);
   }
 })();

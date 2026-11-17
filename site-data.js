@@ -20,6 +20,10 @@ window.PORTFOLIO_DATA = {
     // 制作物を増やす場合は、直前の } の後ろに , を付けて同じ形式の項目を追加します。
   ],
 
+  photos: [
+    // 写真の記入例: { src: "./images/photo-01.jpg", alt: "写真の説明", caption: "" }
+  ],
+
   contact: {
     email: "sagakatsuyuki.555@gmail.com",
     links: [
