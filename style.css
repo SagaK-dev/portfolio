@@ -28,7 +28,7 @@ img { display: block; max-width: 100%; }
 
 .site-header { position: sticky; z-index: 10; top: 0; background: var(--paper); border-bottom: 1px solid #e5e5e3; }
 .header-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.site-name { font-size: 1.05rem; font-weight: 750; letter-spacing: -.035em; text-decoration: none; overflow-wrap: anywhere; }
+.site-name { font-family: "Segoe Script", "Apple Chancery", "Snell Roundhand", "URW Chancery L", "Z003", cursive; font-size: 1.5rem; font-weight: 500; line-height: 1.25; letter-spacing: 0; text-decoration: none; overflow-wrap: anywhere; }
 .nav-list { display: flex; align-items: center; flex-wrap: wrap; gap: .25rem 2rem; margin: 0; padding: 0; list-style: none; }
 .nav-list a { display: inline-block; padding: .65rem 0; font-size: .8125rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
 .nav-list a:hover { text-decoration: underline; }
