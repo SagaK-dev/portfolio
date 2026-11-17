@@ -130,7 +130,18 @@
   toggleSection("projects", projectList.children.length > 0);
 
   const photoList = byId("photo-list");
-  for (const photo of entries(data.photos)) {
+  const managedPhotos = entries(window.PHOTO_GALLERY).flatMap(photo => {
+    if (!photo || typeof photo !== "object") return [];
+    const filename = clean(photo.file);
+    if (!filename || filename !== photo.file || !/\.png$/i.test(filename) || /[\\/\u0000-\u001f\u007f]/.test(filename)) return [];
+    const caption = clean(photo.caption);
+    try {
+      return [{ src: `./photos/${encodeURIComponent(filename)}`, alt: caption || filename.replace(/\.png$/i, ""), caption }];
+    } catch (_) {
+      return [];
+    }
+  });
+  for (const photo of [...entries(data.photos), ...managedPhotos]) {
     if (!photo || typeof photo !== "object") continue;
     const source = safeUrl(photo.src);
     if (!source) continue;

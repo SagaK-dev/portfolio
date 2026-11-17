@@ -11,7 +11,8 @@ portfolio/
 ├── site-data.js    名前、制作物、写真、自己紹介、連絡先の設定
 ├── script.js       設定をページに表示する処理
 ├── fonts/          Great Vibes フォントとライセンス
-└── images/         制作物の画像や写真を置く場所
+├── images/         制作物の画像を置く場所
+└── photos/         写真・写真一覧・写真追加ページ
 ```
 
 ## 内容を変更する
@@ -23,7 +24,7 @@ portfolio/
 - `about`：自己紹介
 - `skills`：スキルの一覧。不要な場合は `[]` のままにします。
 - `projects`：制作物の一覧
-- `photos`：写真の一覧。空の場合は「写真はまだありません。」と表示されます。
+- `photos`：手動で登録する写真の一覧。写真追加ページで登録した写真は `photos/gallery.js` に保存されます。
 - `contact.email`：メールアドレス。不要な場合は `""` にします。
 - `contact.links`：GitHub などへのリンク。不要な場合は `[]` にします。
 
@@ -66,19 +67,13 @@ projects: [
 
 ### 写真を追加する
 
-1. 写真を `images` フォルダーにアップロードします。ファイル名の大文字・小文字も含めて正確に控えてください。
-2. `site-data.js` の `photos` に写真を追加します。`src` には画像のパス、`alt` には写真の内容、`caption` には必要に応じて説明文を入力します。
+1. [写真追加ページ](https://sagak-dev.github.io/portfolio/photos/manage.html)を開き、PNG ファイルを選びます。
+2. 写真の説明を入力し、**写真一覧を保存** を押します。`gallery.js` がダウンロードされます。
+3. [GitHub のアップロード画面](https://github.com/SagaK-dev/portfolio/upload/main/photos)を開き、今回選んだ PNG ファイルと `gallery.js` の両方をドラッグし、**Commit changes** を押します。
 
-以下は**記入例**です。実際のファイル名と説明に変更して使用してください。
+ファイル名は `gallery.js` にしてください。ダウンロード時に `gallery (1).js` などになった場合は、名前を変更してからアップロードします。説明は写真の下に表示されます。写真をクリックすると画像全体を表示できます。
 
-```js
-photos: [
-  { src: "./images/photo-01.jpg", alt: "山の風景", caption: "山の風景" },
-  { src: "./images/photo-02.jpg", alt: "街の風景", caption: "" }
-],
-```
-
-`caption` を空欄にすると説明文は表示されません。写真をクリックすると画像全体を表示できます。
+写真追加ページで以前登録した写真とその説明も表示されます。一覧から写真を除いて保存すると、サイト上からは消えますが、画像ファイルは GitHub に残ります。`site-data.js` に手動で登録した写真も引き続き表示されます。
 
 ## ローカルで確認する
 

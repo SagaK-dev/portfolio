@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>写真を追加 | K.Saga</title>
+  <link rel="stylesheet" href="./manage.css">
+  <script src="./manage.js" defer></script>
+</head>
+<body>
+  <header class="page-header"><div class="container"><a href="../">← ポートフォリオへ</a></div></header>
+  <main class="container">
+    <h1>写真を追加</h1>
+    <p class="intro">PNG ファイルを選び、それぞれに説明を入力できます。</p>
+
+    <ol class="steps">
+      <li>写真を選び、説明を入力する。</li>
+      <li>「写真一覧を保存」を押す。</li>
+      <li>選んだ PNG と保存した <code>gallery.js</code> を GitHub の photos フォルダーに一緒にアップロードする。</li>
+    </ol>
+    <p class="note">ダウンロードしたファイル名が <code>gallery.js</code> でない場合は、その名前に変更してからアップロードしてください。</p>
+
+    <section aria-labelledby="select-title">
+      <h2 id="select-title">写真と説明</h2>
+      <label for="photo-files">PNG ファイルを選択</label>
+      <input id="photo-files" type="file" accept=".png,image/png" multiple disabled>
+      <p class="hint">複数の写真を選べます。同じ名前の写真は追加できません。</p>
+      <p class="status" id="status" role="status" aria-live="polite">写真一覧を読み込んでいます。</p>
+      <ul class="photo-entries" id="photo-entries"></ul>
+      <p class="empty" id="empty" hidden>写真はまだ登録されていません。</p>
+      <p class="hint">一覧から削除しても、GitHub にある画像ファイルは削除されません。</p>
+      <button id="download" type="button" disabled>写真一覧を保存</button>
+    </section>
+
+    <section class="upload" aria-labelledby="upload-title">
+      <h2 id="upload-title">GitHub にアップロード</h2>
+      <p>保存後、PNG と <code>gallery.js</code> を次の画面にドラッグし、<strong>Commit changes</strong> を押してください。</p>
+      <a class="upload-link" href="https://github.com/SagaK-dev/portfolio/upload/main/photos" target="_blank" rel="noopener noreferrer">GitHub のアップロード画面を開く ↗</a>
+    </section>
+  </main>
+  <noscript><p class="container">このページを使うには JavaScript を有効にしてください。</p></noscript>
+</body>
+</html>

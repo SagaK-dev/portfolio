@@ -1,0 +1,35 @@
+:root { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; color: #222; background: #fff; line-height: 1.7; }
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+.container { width: min(720px, calc(100% - 40px)); margin-inline: auto; }
+a { color: inherit; text-underline-offset: .2em; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #222; outline-offset: 3px; }
+.page-header { border-bottom: 1px solid #ddd; }
+.page-header .container { padding: 1.2rem 0; }
+.page-header a { font-size: .875rem; }
+main { padding: 3.5rem 0 5rem; }
+h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.2rem); }
+h2 { margin: 0 0 1rem; font-size: 1.15rem; }
+p { margin: .7rem 0; }
+.intro { margin: .5rem 0 1.5rem; }
+.steps { margin: 0; padding: 1.2rem 1.25rem 1.2rem 2.6rem; background: #f2f2ef; }
+.steps li + li { margin-top: .5rem; }
+.note, .hint, .empty { color: #555; font-size: .875rem; }
+code { overflow-wrap: anywhere; }
+section { margin-top: 3rem; }
+label { display: block; font-weight: 600; }
+input[type="file"] { display: block; max-width: 100%; margin-top: .6rem; }
+.status { min-height: 1.5em; margin: 1rem 0 0; font-size: .875rem; }
+.photo-entries { margin: 0; padding: 0; list-style: none; }
+.photo-entries li { display: grid; gap: .45rem; margin-top: 1rem; padding: 1rem; border: 1px solid #ddd; }
+.photo-entries img { width: 112px; height: 84px; object-fit: cover; background: #f2f2ef; }
+.photo-entries strong { overflow-wrap: anywhere; font-size: .9rem; }
+.photo-entries label { font-size: .875rem; }
+input[type="text"] { width: 100%; min-width: 0; padding: .65rem .7rem; border: 1px solid #999; border-radius: 0; font: inherit; }
+button { padding: .7rem 1rem; border: 1px solid #222; border-radius: 0; background: #222; color: #fff; font: inherit; cursor: pointer; }
+button:disabled { border-color: #aaa; background: #aaa; cursor: default; }
+.remove { justify-self: start; margin-top: .2rem; padding: .25rem 0; border: 0; background: transparent; color: #555; font-size: .8125rem; text-decoration: underline; text-underline-offset: .2em; }
+.upload { padding-top: 2rem; border-top: 1px solid #ddd; }
+.upload-link { display: inline-block; margin-top: .5rem; font-weight: 600; }
+@media (max-width: 480px) { main { padding-top: 2.5rem; } section { margin-top: 2.5rem; } }
