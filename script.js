@@ -178,6 +178,25 @@
   skillList.hidden = !skillList.children.length;
   toggleSection("about", Boolean(about || skillList.children.length));
 
+  const technologyEntries = byId("technology-entries");
+  for (const technology of entries(window.PORTFOLIO_TECHNOLOGIES)) {
+    if (!technology || typeof technology !== "object") continue;
+    const title = clean(technology.name);
+    if (!title) continue;
+    const item = document.createElement("li");
+    const heading = document.createElement("h3");
+    heading.textContent = title;
+    item.append(heading);
+    const description = clean(technology.description);
+    if (description) {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = description;
+      item.append(paragraph);
+    }
+    technologyEntries.append(item);
+  }
+  byId("technology-empty").hidden = technologyEntries.children.length > 0;
+
   const contact = data.contact && typeof data.contact === "object" ? data.contact : {};
   const contactList = byId("contact-list");
   function addContact(label, text, url = "") {
@@ -203,12 +222,13 @@
   }
   toggleSection("contact", contactList.children.length > 0);
 
-  const nextSection = ["projects", "photos", "about", "contact"].find(id => !byId(id).hidden);
+  const nextSection = ["projects", "photos", "about", "technologies", "contact"].find(id => !byId(id).hidden);
   const heroNext = byId("hero-next");
   heroNext.hidden = !nextSection;
   if (nextSection) {
     heroNext.href = `#${nextSection}`;
-    const labels = { projects: "制作物へ移動", photos: "写真へ移動", about: "自己紹介へ移動", contact: "連絡先へ移動" };
+    const labels = { projects: "制作物へ移動", photos: "写真へ移動", about: "自己紹介へ移動", technologies: "技術紹介へ移動", contact: "連絡先へ移動" };
     heroNext.setAttribute("aria-label", labels[nextSection]);
   }
 })();
+

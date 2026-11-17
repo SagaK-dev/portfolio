@@ -1,0 +1,9 @@
+textarea:focus-visible { outline: 2px solid #222; outline-offset: 3px; }
+.managed-technologies { margin: 0; padding: 0; list-style: none; }
+.managed-technologies li { display: grid; gap: .45rem; margin-top: 1rem; padding: 1rem; border: 1px solid #ddd; }
+.managed-technologies label { margin-top: .3rem; font-size: .875rem; }
+.managed-technologies textarea { width: 100%; min-width: 0; min-height: 7rem; padding: .65rem .7rem; resize: vertical; border: 1px solid #999; border-radius: 0; font: inherit; line-height: 1.7; }
+.managed-technologies .remove { margin-top: .5rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+.secondary { background: #fff; color: #222; }
+.secondary:disabled { background: #fff; color: #999; }

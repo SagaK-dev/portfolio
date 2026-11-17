@@ -6,9 +6,11 @@
   <meta name="description" content="制作物と自己紹介を掲載するポートフォリオです。">
   <meta name="color-scheme" content="light">
   <title>ポートフォリオ</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;display=swap">
   <link rel="stylesheet" href="./style.css">
   <script src="./site-data.js" defer></script>
   <script src="./photos/gallery.js" defer></script>
+  <script src="./technologies/technologies.js" defer></script>
   <script src="./script.js" defer></script>
 </head>
 <body>
@@ -22,6 +24,7 @@
           <li id="nav-projects"><a href="#projects">制作物 | <span lang="en">Works</span></a></li>
           <li id="nav-photos"><a href="#photos">写真 | <span lang="en">photo</span></a></li>
           <li id="nav-about"><a href="#about">自己紹介 | <span lang="en">About</span></a></li>
+          <li id="nav-technologies"><a href="#technologies">技術紹介 | <span lang="en">Technologies</span></a></li>
           <li id="nav-contact"><a href="#contact">連絡先 | <span lang="en">Contact</span></a></li>
         </ul>
       </nav>
@@ -72,6 +75,14 @@
       </div>
     </section>
 
+    <section class="section technologies-section" id="technologies" aria-labelledby="technologies-title">
+      <div class="container narrow">
+        <div class="section-heading"><h2 id="technologies-title">技術紹介 | <span lang="en">Technologies</span></h2></div>
+        <ul class="technology-entries" id="technology-entries"></ul>
+        <p class="technology-empty" id="technology-empty">技術はまだ登録されていません。</p>
+      </div>
+    </section>
+
     <section class="section contact-section" id="contact" aria-labelledby="contact-title" hidden>
       <div class="container narrow">
         <div class="section-heading"><h2 id="contact-title">連絡先 | <span lang="en">Contact</span></h2></div>
@@ -83,3 +94,4 @@
   <footer class="site-footer"><div class="container footer-inner"><span id="footer-name">ポートフォリオ</span></div></footer>
 </body>
 </html>
+
