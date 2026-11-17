@@ -27,47 +27,49 @@
   </header>
 
   <main id="main">
-    <div class="container">
-      <section class="hero" id="top" aria-labelledby="hero-name">
+    <section class="hero" id="top" aria-labelledby="hero-name">
+      <div class="hero-inner container">
         <p class="eyebrow">PORTFOLIO</p>
         <h1 id="hero-name">ポートフォリオ</h1>
         <p class="hero-role" id="hero-role" hidden></p>
-      </section>
+        <svg class="hero-mark" viewBox="0 0 144 144" fill="none" aria-hidden="true" focusable="false">
+          <rect x="37" y="37" width="70" height="70" rx="3"></rect>
+          <rect x="50" y="50" width="44" height="44" rx="1"></rect>
+          <path d="M52 27v10m20-10v10m20-10v10M52 107v10m20-10v10m20-10v10M27 52h10M27 72h10M27 92h10m70-40h10m-10 20h10m-10 20h10"></path>
+          <path d="M61 72h22M72 61v22"></path>
+        </svg>
+        <a class="hero-next" id="hero-next" href="#projects" aria-label="次のセクションへ">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7"></path></svg>
+        </a>
+      </div>
+    </section>
 
-      <noscript>
-        <p class="notice">このページの内容を表示するには、JavaScript を有効にしてください。</p>
-      </noscript>
+    <noscript><p class="notice container">このページの内容を表示するには、JavaScript を有効にしてください。</p></noscript>
 
-      <section class="content-section" id="projects" aria-labelledby="projects-title" hidden>
-        <div class="section-heading">
-          <h2 id="projects-title">制作物</h2>
-        </div>
+    <section class="section works-section" id="projects" aria-labelledby="projects-title" hidden>
+      <div class="container">
+        <div class="section-heading"><h2 id="projects-title">Works</h2><p>制作物</p></div>
         <div class="project-list" id="project-list"></div>
-      </section>
+      </div>
+    </section>
 
-      <section class="content-section split-section" id="about" aria-labelledby="about-title" hidden>
-        <div class="section-heading">
-          <h2 id="about-title">自己紹介</h2>
-        </div>
-        <div class="section-body">
-          <p class="about-text" id="about-text" hidden></p>
-          <ul class="skill-list" id="skill-list" aria-label="スキル" hidden></ul>
-        </div>
-      </section>
+    <section class="section about-section" id="about" aria-labelledby="about-title" hidden>
+      <div class="container narrow">
+        <div class="section-heading"><h2 id="about-title">About me</h2><p>自己紹介</p></div>
+        <div class="profile-mark" id="profile-mark" aria-hidden="true"></div>
+        <p class="about-text" id="about-text" hidden></p>
+        <ul class="skill-list" id="skill-list" aria-label="スキル" hidden></ul>
+      </div>
+    </section>
 
-      <section class="content-section split-section contact-section" id="contact" aria-labelledby="contact-title" hidden>
-        <div class="section-heading">
-          <h2 id="contact-title">連絡先</h2>
-        </div>
-        <div class="section-body">
-          <ul class="contact-list" id="contact-list"></ul>
-        </div>
-      </section>
-    </div>
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title" hidden>
+      <div class="container narrow">
+        <div class="section-heading"><h2 id="contact-title">Contact</h2><p>連絡先</p></div>
+        <ul class="contact-list" id="contact-list"></ul>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner"><span id="footer-name">ポートフォリオ</span></div>
-  </footer>
+  <footer class="site-footer"><div class="container footer-inner"><span id="footer-name">ポートフォリオ</span></div></footer>
 </body>
 </html>

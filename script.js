@@ -49,6 +49,8 @@
   byId("header-name").textContent = name;
   byId("hero-name").textContent = name;
   byId("footer-name").textContent = name;
+  byId("profile-mark").textContent = name.split(/[\s.]+/u)
+    .filter(Boolean).map(part => Array.from(part)[0]).join("").slice(0, 2).toUpperCase();
   document.title = `${name} | ポートフォリオ`;
   document.querySelector('meta[name="description"]').content = `${name} のポートフォリオ。制作物と自己紹介を掲載しています。`;
   setText("hero-role", clean(data.role));
@@ -58,12 +60,39 @@
     if (!project || typeof project !== "object" || !clean(project.title)) continue;
     const article = document.createElement("article");
     article.className = "project";
-    const heading = document.createElement("h3");
-    heading.textContent = clean(project.title);
-    article.append(heading);
+    const validLinks = entries(project.links).flatMap(item => {
+      if (!item || typeof item !== "object") return [];
+      const label = clean(item.label);
+      const url = safeUrl(item.url);
+      return label && url ? [{ label, url }] : [];
+    });
+    const cover = document.createElement(validLinks.length ? "a" : "div");
+    cover.className = "project-cover";
+    if (validLinks.length) {
+      cover.href = validLinks[0].url;
+      cover.setAttribute("aria-label", `${clean(project.title)}：${validLinks[0].label}`);
+    }
+    const imageUrl = safeUrl(project.image);
+    if (imageUrl) {
+      const image = document.createElement("img");
+      image.src = imageUrl;
+      image.alt = clean(project.imageAlt) || `${clean(project.title)} の画像`;
+      image.loading = "lazy";
+      cover.append(image);
+    } else {
+      const initial = document.createElement("span");
+      initial.className = "project-initial";
+      initial.setAttribute("aria-hidden", "true");
+      initial.textContent = Array.from(clean(project.title))[0].toUpperCase();
+      cover.append(initial);
+    }
+    article.append(cover);
 
     const detail = document.createElement("div");
     detail.className = "project-detail";
+    const heading = document.createElement("h3");
+    heading.textContent = clean(project.title);
+    detail.append(heading);
     const description = clean(project.description);
     if (description) {
       const paragraph = document.createElement("p");
@@ -87,11 +116,7 @@
     }
     const links = document.createElement("ul");
     links.className = "project-links";
-    for (const item of entries(project.links)) {
-      if (!item || typeof item !== "object") continue;
-      const label = clean(item.label);
-      const url = safeUrl(item.url);
-      if (!label || !url) continue;
+    for (const { label, url } of validLinks) {
       const li = document.createElement("li");
       li.append(makeLink(label, url));
       links.append(li);
@@ -100,17 +125,6 @@
     if (meta.children.length) detail.append(meta);
     article.append(detail);
 
-    const imageUrl = safeUrl(project.image);
-    if (imageUrl) {
-      const figure = document.createElement("figure");
-      figure.className = "project-image";
-      const image = document.createElement("img");
-      image.src = imageUrl;
-      image.alt = clean(project.imageAlt) || `${clean(project.title)} の画像`;
-      image.loading = "lazy";
-      figure.append(image);
-      article.append(figure);
-    }
     projectList.append(article);
   }
   toggleSection("projects", projectList.children.length > 0);
@@ -147,4 +161,13 @@
     addContact(clean(item.label), clean(item.text) || clean(item.label), safeUrl(item.url));
   }
   toggleSection("contact", contactList.children.length > 0);
+
+  const nextSection = ["projects", "about", "contact"].find(id => !byId(id).hidden);
+  const heroNext = byId("hero-next");
+  heroNext.hidden = !nextSection;
+  if (nextSection) {
+    heroNext.href = `#${nextSection}`;
+    const labels = { projects: "制作物へ移動", about: "自己紹介へ移動", contact: "連絡先へ移動" };
+    heroNext.setAttribute("aria-label", labels[nextSection]);
+  }
 })();
