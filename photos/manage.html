@@ -4,43 +4,78 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>写真を追加 | K.Saga</title>
+  <title>写真・技術を管理 | K.Saga</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;display=swap">
   <link rel="stylesheet" href="./manage.css">
+  <link rel="stylesheet" href="../technologies/manage.css">
   <script src="./manage.js" defer></script>
+  <script src="../technologies/manage.js" defer></script>
 </head>
 <body>
   <header class="page-header"><div class="container"><a href="../">← ポートフォリオへ</a></div></header>
   <main class="container">
-    <h1>写真を追加</h1>
-    <p class="intro">PNG ファイルを選び、それぞれに説明を入力できます。</p>
+    <h1>写真・技術を管理</h1>
+    <p class="intro">写真と技術紹介を、このページからそれぞれ追加・編集・削除できます。</p>
+    <nav class="manager-nav" aria-label="管理する項目">
+      <a href="#photos">写真の管理</a>
+      <a href="#technologies">技術の管理</a>
+    </nav>
 
-    <ol class="steps">
-      <li>写真を選び、説明を入力する。</li>
-      <li>「写真一覧を保存」を押す。</li>
-      <li>選んだ PNG と保存した <code>gallery.js</code> を GitHub の photos フォルダーに一緒にアップロードする。</li>
-    </ol>
-    <p class="note">ダウンロードしたファイル名が <code>gallery.js</code> でない場合は、その名前に変更してからアップロードしてください。</p>
+    <section class="manager-group" id="photos" aria-labelledby="photos-title">
+      <h2 id="photos-title">写真の追加・編集</h2>
+      <ol class="steps">
+        <li>写真を選び、説明を入力する。</li>
+        <li>「写真一覧を保存」を押す。</li>
+        <li>選んだ PNG と保存した <code>gallery.js</code> を GitHub の photos フォルダーに一緒にアップロードする。</li>
+      </ol>
+      <p class="note">ダウンロードしたファイル名が <code>gallery.js</code> でない場合は、その名前に変更してからアップロードしてください。</p>
 
-    <section aria-labelledby="select-title">
-      <h2 id="select-title">写真と説明</h2>
-      <label for="photo-files">PNG ファイルを選択</label>
-      <input id="photo-files" type="file" accept=".png,image/png" multiple disabled>
-      <p class="hint">複数の写真を選べます。同じ名前の写真は追加できません。</p>
-      <p class="status" id="status" role="status" aria-live="polite">写真一覧を読み込んでいます。</p>
-      <ul class="photo-entries" id="photo-entries"></ul>
-      <p class="empty" id="empty" hidden>写真はまだ登録されていません。</p>
-      <p class="hint">一覧から削除しても、GitHub にある画像ファイルは削除されません。</p>
-      <button id="download" type="button" disabled>写真一覧を保存</button>
+      <div class="entries-panel" aria-labelledby="select-title">
+        <h3 id="select-title">写真と説明</h3>
+        <label for="photo-files">PNG ファイルを選択</label>
+        <input id="photo-files" type="file" accept=".png,image/png" multiple disabled>
+        <p class="hint">複数の写真を選べます。同じ名前の写真は追加できません。</p>
+        <p class="status" id="status" role="status" aria-live="polite">写真一覧を読み込んでいます。</p>
+        <ul class="photo-entries" id="photo-entries"></ul>
+        <p class="empty" id="empty" hidden>写真はまだ登録されていません。</p>
+        <p class="hint">一覧から削除しても、GitHub にある画像ファイルは削除されません。</p>
+        <button id="download" type="button" disabled>写真一覧を保存</button>
+      </div>
+
+      <div class="upload" aria-labelledby="photo-upload-title">
+        <h3 id="photo-upload-title">GitHub にアップロード</h3>
+        <p>保存後、PNG と <code>gallery.js</code> を次の画面にドラッグし、<strong>Commit changes</strong> を押してください。</p>
+        <a class="upload-link" href="https://github.com/SagaK-dev/portfolio/upload/main/photos" target="_blank" rel="noopener noreferrer">GitHub のアップロード画面を開く ↗</a>
+      </div>
     </section>
 
-    <section class="upload" aria-labelledby="upload-title">
-      <h2 id="upload-title">GitHub にアップロード</h2>
-      <p>保存後、PNG と <code>gallery.js</code> を次の画面にドラッグし、<strong>Commit changes</strong> を押してください。</p>
-      <a class="upload-link" href="https://github.com/SagaK-dev/portfolio/upload/main/photos" target="_blank" rel="noopener noreferrer">GitHub のアップロード画面を開く ↗</a>
+    <section class="manager-group" id="technologies" aria-labelledby="technologies-title">
+      <h2 id="technologies-title">技術の追加・編集</h2>
+      <ol class="steps">
+        <li>「技術を追加」を押し、技術名と説明を入力する。</li>
+        <li>「技術一覧を保存」を押す。</li>
+        <li>保存した <code>technologies.js</code> を GitHub の technologies フォルダーにアップロードする。</li>
+      </ol>
+      <p class="note">ダウンロードしたファイル名が <code>technologies.js</code> でない場合は、その名前に変更してからアップロードしてください。</p>
+
+      <div class="entries-panel" aria-labelledby="tech-entries-title">
+        <h3 id="tech-entries-title">技術と説明</h3>
+        <p class="status" id="tech-status" role="status" aria-live="polite">技術一覧を読み込んでいます。</p>
+        <ul class="managed-technologies" id="tech-entries"></ul>
+        <p class="empty" id="tech-empty" hidden>技術はまだ登録されていません。</p>
+        <div class="actions">
+          <button id="tech-add" class="secondary" type="button" disabled>技術を追加</button>
+          <button id="tech-download" type="button" disabled>技術一覧を保存</button>
+        </div>
+      </div>
+
+      <div class="upload" aria-labelledby="tech-upload-title">
+        <h3 id="tech-upload-title">GitHub にアップロード</h3>
+        <p>保存した <code>technologies.js</code> を次の画面にドラッグし、<strong>Commit changes</strong> を押してください。</p>
+        <a class="upload-link" href="https://github.com/SagaK-dev/portfolio/upload/main/technologies" target="_blank" rel="noopener noreferrer">GitHub のアップロード画面を開く ↗</a>
+      </div>
     </section>
   </main>
   <noscript><p class="container">このページを使うには JavaScript を有効にしてください。</p></noscript>
 </body>
 </html>
-
