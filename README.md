@@ -12,8 +12,8 @@ portfolio/
 ├── script.js       設定をページに表示する処理
 ├── fonts/          Great Vibes フォントとライセンス
 ├── images/         制作物の画像を置く場所
-├── photos/         写真・写真一覧・写真追加ページ
-└── technologies/   技術一覧・技術追加ページ
+├── photos/         写真一覧と写真・技術の統合管理ページ
+└── technologies/   技術一覧と旧管理ページからの案内
 ```
 
 ## 内容を変更する
@@ -68,7 +68,7 @@ projects: [
 
 ### 写真を追加する
 
-1. [写真追加ページ](https://sagak-dev.github.io/portfolio/photos/manage.html)を開き、PNG ファイルを選びます。
+1. [写真・技術の統合管理ページ](https://sagak-dev.github.io/portfolio/photos/manage.html)を開き、PNG ファイルを選びます。
 2. 写真の説明を入力し、**写真一覧を保存** を押します。`gallery.js` がダウンロードされます。
 3. [GitHub のアップロード画面](https://github.com/SagaK-dev/portfolio/upload/main/photos)を開き、今回選んだ PNG ファイルと `gallery.js` の両方をドラッグし、**Commit changes** を押します。
 
@@ -78,13 +78,13 @@ projects: [
 
 ### 技術を追加する
 
-1. [技術追加ページ](https://sagak-dev.github.io/portfolio/technologies/manage.html)を開き、**技術を追加** を押します。
+1. [統合管理ページの技術欄](https://sagak-dev.github.io/portfolio/photos/manage.html#technologies)を開き、**技術を追加** を押します。
 2. 技術名と説明を入力します。必要な数だけ追加でき、以前登録した項目の編集・削除もできます。
 3. **技術一覧を保存** を押し、ダウンロードした `technologies.js` を[GitHub のアップロード画面](https://github.com/SagaK-dev/portfolio/upload/main/technologies)にドラッグし、**Commit changes** を押します。
 
 ファイル名は `technologies.js` にしてください。ダウンロード時に `technologies (1).js` などになった場合は、名前を変更してからアップロードします。技術紹介は連絡先の上に表示されます。
 
-写真追加ページと技術追加ページは、URL を知っていれば誰でも開けます。ただし、ページで操作しただけでは公開サイトは変更されず、反映にはリポジトリへの書き込み権限が必要です。
+統合管理ページは、URL を知っていれば誰でも開けます。旧技術追加ページの URL からも統合管理ページに移動できます。ただし、ページで操作しただけでは公開サイトは変更されず、反映にはリポジトリへの書き込み権限が必要です。
 
 ## ローカルで確認する
 

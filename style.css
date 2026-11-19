@@ -14,7 +14,8 @@
   --surface: #f2f2ef;
   --paper: #fff;
   --width: 1040px;
-  font-family: "BIZ UDPGothic", "BIZ UDゴシック", sans-serif;
+  --ud-font: "BIZ UDPGothic", "BIZ UDゴシック", "UD デジタル 教科書体 N-R", sans-serif;
+  font-family: var(--ud-font);
   font-synthesis: none;
   color: var(--ink);
   background: var(--paper);
@@ -25,6 +26,7 @@
 [hidden] { display: none !important; }
 html { scroll-padding-top: 5.5rem; }
 body { margin: 0; }
+button, input, select, textarea, option, code, pre { font-family: var(--ud-font); }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .25em; }
 a:hover { color: #595959; }
 a:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
@@ -36,7 +38,7 @@ img { display: block; max-width: 100%; }
 
 .site-header { position: sticky; z-index: 10; top: 0; background: var(--paper); border-bottom: 1px solid #e5e5e3; }
 .header-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.site-name { font-family: "Great Vibes", cursive; font-size: 2rem; font-weight: 400; line-height: 1.25; letter-spacing: 0; text-decoration: none; overflow-wrap: anywhere; }
+.site-name { font-family: "Great Vibes", var(--ud-font); font-size: 2rem; font-weight: 400; line-height: 1.25; letter-spacing: 0; text-decoration: none; overflow-wrap: anywhere; }
 .nav-list { display: flex; align-items: center; flex-wrap: wrap; gap: .25rem 2rem; margin: 0; padding: 0; list-style: none; }
 .nav-list a { display: inline-block; padding: .65rem 0; font-size: .8125rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
 .nav-list a:hover { text-decoration: underline; }
@@ -44,7 +46,7 @@ img { display: block; max-width: 100%; }
 .hero { display: grid; min-height: min(720px, calc(100svh - 72px)); place-items: center; text-align: center; background: var(--surface); }
 .hero-inner { padding: 5.5rem 0 4rem; }
 .eyebrow { margin: 0 0 1rem; color: var(--muted); font-size: .7rem; font-weight: 700; letter-spacing: .2em; }
-.hero h1 { margin: 0; font-family: "Great Vibes", cursive; font-size: clamp(4.5rem, 10vw, 7.5rem); font-weight: 400; line-height: 1.25; letter-spacing: 0; overflow-wrap: anywhere; }
+.hero h1 { margin: 0; font-family: "Great Vibes", var(--ud-font); font-size: clamp(4.5rem, 10vw, 7.5rem); font-weight: 400; line-height: 1.25; letter-spacing: 0; overflow-wrap: anywhere; }
 .hero-role { margin: 1rem 0 0; color: var(--muted); font-size: 1rem; }
 .hero-mark { display: block; width: clamp(108px, 14vw, 145px); height: auto; margin: 2rem auto 1.75rem; stroke: var(--ink); stroke-width: 1.4; }
 .hero-next { display: grid; width: 48px; height: 48px; margin: 0 auto; place-items: center; border: 1px solid #8a8a87; border-radius: 50%; }

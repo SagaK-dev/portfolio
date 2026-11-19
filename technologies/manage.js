@@ -2,11 +2,11 @@
   "use strict";
 
   const byId = id => document.getElementById(id);
-  const list = byId("entries");
-  const empty = byId("empty");
-  const status = byId("status");
-  const add = byId("add");
-  const download = byId("download");
+  const list = byId("tech-entries");
+  const empty = byId("tech-empty");
+  const status = byId("tech-status");
+  const add = byId("tech-add");
+  const download = byId("tech-download");
   const records = [];
 
   function render() {
@@ -16,7 +16,7 @@
       const item = document.createElement("li");
       const nameLabel = document.createElement("label");
       const name = document.createElement("input");
-      name.id = `name-${index}`;
+      name.id = `tech-name-${index}`;
       name.type = "text";
       name.value = record.name;
       name.placeholder = "例：Java";
@@ -28,7 +28,7 @@
 
       const descriptionLabel = document.createElement("label");
       const description = document.createElement("textarea");
-      description.id = `description-${index}`;
+      description.id = `tech-description-${index}`;
       description.value = record.description;
       description.placeholder = "この技術の説明";
       description.maxLength = 3000;
@@ -59,7 +59,7 @@
   add.addEventListener("click", () => {
     records.push({ name: "", description: "" });
     render();
-    byId(`name-${records.length - 1}`).focus();
+    byId(`tech-name-${records.length - 1}`).focus();
     status.textContent = "技術名と説明を入力してください。";
   });
 
@@ -88,7 +88,7 @@
 
   // 既存の一覧を読み込めない場合は、うっかり空の一覧で上書きしないようにします。
   const dataScript = document.createElement("script");
-  const dataUrl = new URL("./technologies.js", window.location.href);
+  const dataUrl = new URL("../technologies/technologies.js", window.location.href);
   if (dataUrl.protocol === "http:" || dataUrl.protocol === "https:") dataUrl.searchParams.set("v", String(Date.now()));
   dataScript.src = dataUrl.href;
   dataScript.onload = () => {
