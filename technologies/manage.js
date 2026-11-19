@@ -67,7 +67,7 @@
     const missingIndex = records.findIndex(record => !record.name.trim());
     if (missingIndex !== -1) {
       status.textContent = "技術名を入力するか、不要な項目を削除してください。";
-      byId(`name-${missingIndex}`).focus();
+      byId(`tech-name-${missingIndex}`).focus();
       return;
     }
     const technologies = records.map(({ name, description }) => ({
